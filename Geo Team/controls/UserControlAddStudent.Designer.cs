@@ -76,6 +76,7 @@
             // 
             // lbl_error_parent_phone
             // 
+            this.lbl_error_parent_phone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_error_parent_phone.AutoSize = true;
             this.lbl_error_parent_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_error_parent_phone.ForeColor = System.Drawing.Color.Red;
@@ -88,6 +89,7 @@
             // 
             // lbl_error_phone
             // 
+            this.lbl_error_phone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_error_phone.AutoSize = true;
             this.lbl_error_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_error_phone.ForeColor = System.Drawing.Color.Red;
@@ -100,6 +102,7 @@
             // 
             // lbl_error_name
             // 
+            this.lbl_error_name.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_error_name.AutoSize = true;
             this.lbl_error_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_error_name.ForeColor = System.Drawing.Color.Red;
@@ -112,6 +115,7 @@
             // 
             // btn_cancel_edit
             // 
+            this.btn_cancel_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_cancel_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_cancel_edit.FlatAppearance.BorderSize = 0;
             this.btn_cancel_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -128,6 +132,7 @@
             // 
             // lbl_Name
             // 
+            this.lbl_Name.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_Name.AutoSize = true;
             this.lbl_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -139,6 +144,7 @@
             // 
             // txt_name
             // 
+            this.txt_name.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Location = new System.Drawing.Point(181, 184);
             this.txt_name.Name = "txt_name";
@@ -148,6 +154,7 @@
             // 
             // btn_add_student
             // 
+            this.btn_add_student.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_add_student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_add_student.FlatAppearance.BorderSize = 0;
             this.btn_add_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -197,6 +204,7 @@
             // 
             // txt_phone
             // 
+            this.txt_phone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_phone.Location = new System.Drawing.Point(181, 219);
             this.txt_phone.Name = "txt_phone";
@@ -206,6 +214,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -217,6 +226,7 @@
             // 
             // txt_parent_phone
             // 
+            this.txt_parent_phone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_parent_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_parent_phone.Location = new System.Drawing.Point(181, 254);
             this.txt_parent_phone.Name = "txt_parent_phone";
@@ -226,6 +236,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -237,6 +248,7 @@
             // 
             // btn_edit
             // 
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_edit.Location = new System.Drawing.Point(435, 12);
             this.btn_edit.Name = "btn_edit";
@@ -248,6 +260,7 @@
             // 
             // txt_code
             // 
+            this.txt_code.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_code.Location = new System.Drawing.Point(156, 8);
             this.txt_code.Name = "txt_code";
@@ -257,6 +270,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;

@@ -64,7 +64,7 @@ namespace Geo_Team
         private void btn_add_quiz_Click(object sender, EventArgs e)
         {
             unselectMenuButton(sender);
-            //navNewDestination(new UserControlStudentMarks(this));
+            navNewDestination(new UserControlAddExam(this));
         }
 
         private void btn_add_new_student_Click(object sender, EventArgs e)

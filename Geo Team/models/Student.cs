@@ -12,7 +12,6 @@ namespace Geo_Team.models
         public String name;
         public String phone, parentPhone;
         public Group group; 
-        public List<Attendance> attendance;
         public String[,] quizResults, examResults;
 
         public Student(String id, String name, Group group)
@@ -60,7 +59,7 @@ namespace Geo_Team.models
         }
     }
 
-    public class Attendance
+    /*public class Attendance
     {
         public Group group;
         public string date;
@@ -72,5 +71,5 @@ namespace Geo_Team.models
             this.date = date;
             this.quizGrade = quizGrade;
         }
-    }
+    }*/
 }

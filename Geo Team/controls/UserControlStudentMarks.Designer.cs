@@ -40,8 +40,8 @@
             this.Exam_Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_quizes = new System.Windows.Forms.DataGridView();
             this.btn_find = new System.Windows.Forms.Button();
-            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.center_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quiz_Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
@@ -135,6 +135,8 @@
             // dgv_exams
             // 
             this.dgv_exams.AllowUserToDeleteRows = false;
+            this.dgv_exams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgv_exams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_exams.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgv_exams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -162,12 +164,14 @@
             // dgv_quizes
             // 
             this.dgv_quizes.AllowUserToDeleteRows = false;
+            this.dgv_quizes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgv_quizes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_quizes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgv_quizes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_quizes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Group,
             this.date,
+            this.Group,
             this.center_name,
             this.Quiz_Score});
             this.dgv_quizes.Location = new System.Drawing.Point(13, 199);
@@ -185,17 +189,17 @@
             this.btn_find.UseVisualStyleBackColor = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
-            // Group
-            // 
-            this.Group.HeaderText = "Group Day";
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
-            // 
             // date
             // 
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             this.date.ReadOnly = true;
+            // 
+            // Group
+            // 
+            this.Group.HeaderText = "Group Day";
+            this.Group.Name = "Group";
+            this.Group.ReadOnly = true;
             // 
             // center_name
             // 
@@ -247,8 +251,8 @@
         private System.Windows.Forms.Label lbl_phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exam_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exam_Score;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn center_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quiz_Score;
     }

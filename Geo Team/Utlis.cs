@@ -21,9 +21,9 @@ namespace Geo_Team
         public const int QUIZ_DATE_COLUMN_INDEX = 1; //index in monthly exams and quizzes sheets
 
         //Const Attendance Values
-        public const int ATTENDANCE_DAY_COLUMN_INDEX = 1;
-        public const int ATTENDANCE_TIME_COLUMN_INDEX = 2;
-        public const int ATTENDANCE_DATE_COLUMN_INDEX = 3;
+        //public const int ATTENDANCE_DAY_COLUMN_INDEX = 1;
+        //public const int ATTENDANCE_TIME_COLUMN_INDEX = 2;
+        public const int ATTENDANCE_DATE_COLUMN_INDEX = 1;
         public const int ATTENDANCE_CENTER_NAME_COLUMN_INDEX = 4;
         public const string NOT_ATTENDED = "DID NOT ATTEND";
         public const string DID_NOT_TAKE_EXAM = "NO_RESULT";
