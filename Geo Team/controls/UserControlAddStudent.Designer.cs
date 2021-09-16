@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_error_center = new System.Windows.Forms.Label();
+            this.lbl_error_day = new System.Windows.Forms.Label();
+            this.txt_centerName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_group = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbl_error_parent_phone = new System.Windows.Forms.Label();
             this.lbl_error_phone = new System.Windows.Forms.Label();
             this.lbl_error_name = new System.Windows.Forms.Label();
@@ -37,7 +43,6 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.btn_add_student = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_option = new System.Windows.Forms.Label();
             this.txt_phone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,13 +53,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.lbl_error_center);
+            this.groupBox1.Controls.Add(this.lbl_error_day);
+            this.groupBox1.Controls.Add(this.txt_centerName);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txt_group);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lbl_error_parent_phone);
             this.groupBox1.Controls.Add(this.lbl_error_phone);
             this.groupBox1.Controls.Add(this.lbl_error_name);
@@ -70,9 +81,77 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(13, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(854, 358);
+            this.groupBox1.Size = new System.Drawing.Size(854, 425);
             this.groupBox1.TabIndex = 70;
             this.groupBox1.TabStop = false;
+            // 
+            // lbl_error_center
+            // 
+            this.lbl_error_center.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_error_center.AutoSize = true;
+            this.lbl_error_center.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_center.ForeColor = System.Drawing.Color.Red;
+            this.lbl_error_center.Location = new System.Drawing.Point(567, 333);
+            this.lbl_error_center.Name = "lbl_error_center";
+            this.lbl_error_center.Size = new System.Drawing.Size(212, 20);
+            this.lbl_error_center.TabIndex = 77;
+            this.lbl_error_center.Text = "Center name can\'t be empty!";
+            this.lbl_error_center.Visible = false;
+            // 
+            // lbl_error_day
+            // 
+            this.lbl_error_day.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_error_day.AutoSize = true;
+            this.lbl_error_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_day.ForeColor = System.Drawing.Color.Red;
+            this.lbl_error_day.Location = new System.Drawing.Point(567, 295);
+            this.lbl_error_day.Name = "lbl_error_day";
+            this.lbl_error_day.Size = new System.Drawing.Size(118, 20);
+            this.lbl_error_day.TabIndex = 76;
+            this.lbl_error_day.Text = "Day is not valid!";
+            this.lbl_error_day.Visible = false;
+            // 
+            // txt_centerName
+            // 
+            this.txt_centerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_centerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_centerName.Location = new System.Drawing.Point(181, 324);
+            this.txt_centerName.Name = "txt_centerName";
+            this.txt_centerName.Size = new System.Drawing.Size(368, 29);
+            this.txt_centerName.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(16, 330);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 20);
+            this.label5.TabIndex = 75;
+            this.label5.Text = "Center Name:";
+            // 
+            // txt_group
+            // 
+            this.txt_group.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_group.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_group.Location = new System.Drawing.Point(181, 289);
+            this.txt_group.Name = "txt_group";
+            this.txt_group.Size = new System.Drawing.Size(368, 29);
+            this.txt_group.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(16, 295);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Day: ";
             // 
             // lbl_error_parent_phone
             // 
@@ -121,10 +200,10 @@
             this.btn_cancel_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancel_edit.ForeColor = System.Drawing.Color.White;
-            this.btn_cancel_edit.Location = new System.Drawing.Point(368, 302);
+            this.btn_cancel_edit.Location = new System.Drawing.Point(368, 369);
             this.btn_cancel_edit.Name = "btn_cancel_edit";
             this.btn_cancel_edit.Size = new System.Drawing.Size(181, 35);
-            this.btn_cancel_edit.TabIndex = 13;
+            this.btn_cancel_edit.TabIndex = 15;
             this.btn_cancel_edit.Text = "Cancel";
             this.btn_cancel_edit.UseVisualStyleBackColor = false;
             this.btn_cancel_edit.Visible = false;
@@ -160,45 +239,38 @@
             this.btn_add_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_student.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_student.ForeColor = System.Drawing.Color.White;
-            this.btn_add_student.Location = new System.Drawing.Point(181, 302);
+            this.btn_add_student.Location = new System.Drawing.Point(181, 369);
             this.btn_add_student.Name = "btn_add_student";
             this.btn_add_student.Size = new System.Drawing.Size(181, 35);
-            this.btn_add_student.TabIndex = 12;
+            this.btn_add_student.TabIndex = 14;
             this.btn_add_student.Text = "Add New";
             this.btn_add_student.UseVisualStyleBackColor = false;
             this.btn_add_student.Click += new System.EventHandler(this.btn_add_student_Click);
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbl_option);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 16);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
             this.panel1.Size = new System.Drawing.Size(848, 146);
             this.panel1.TabIndex = 66;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(337, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 61);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbl_option
             // 
-            this.lbl_option.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbl_option.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_option.AutoSize = true;
-            this.lbl_option.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_option.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_option.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_option.Font = new System.Drawing.Font("Monotype Corsiva", 100F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_option.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_option.Location = new System.Drawing.Point(331, 105);
+            this.lbl_option.Location = new System.Drawing.Point(58, -14);
             this.lbl_option.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_option.Name = "lbl_option";
-            this.lbl_option.Size = new System.Drawing.Size(170, 31);
+            this.lbl_option.Size = new System.Drawing.Size(718, 164);
             this.lbl_option.TabIndex = 49;
             this.lbl_option.Text = "New Student";
             // 
@@ -249,13 +321,16 @@
             // btn_edit
             // 
             this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_edit.Location = new System.Drawing.Point(435, 12);
+            this.btn_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_edit.ForeColor = System.Drawing.Color.White;
+            this.btn_edit.Location = new System.Drawing.Point(425, 7);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(121, 23);
+            this.btn_edit.Size = new System.Drawing.Size(148, 31);
             this.btn_edit.TabIndex = 8;
             this.btn_edit.Text = "Edit Student";
-            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // txt_code
@@ -298,7 +373,6 @@
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +385,6 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Button btn_add_student;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_option;
         private System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.Label label1;
@@ -324,5 +397,11 @@
         private System.Windows.Forms.Label lbl_error_parent_phone;
         private System.Windows.Forms.Label lbl_error_phone;
         private System.Windows.Forms.Label lbl_error_name;
+        private System.Windows.Forms.TextBox txt_centerName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_group;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_error_center;
+        private System.Windows.Forms.Label lbl_error_day;
     }
 }

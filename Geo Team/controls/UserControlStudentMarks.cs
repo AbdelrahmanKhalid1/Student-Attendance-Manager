@@ -38,9 +38,9 @@ namespace Geo_Team
                 student = excel.getStudentByCode(txt_code.Text);
                 setUpUi();
             }
-            catch (Exception e)
+            catch (NullReferenceException e) //catches if no student is found or no instance of excel is created or student quiz or exam results are null
             {
-                handleNullError(e);
+                MessageBox.Show(e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Geo_Team
         {
             lbl_name.Text = "Student Name: " + student.name;
             lbl_group.Text = "Student Group: " + student.group.day + " at " + 
-                student.group.appointment + " at " + student.group.centerName;
+                /*student.group.appointment + " at " + */student.group.centerName;
             lbl_phone.Text = "Student Phone: " + student.phone;
             lbl_parent_phone.Text = "Parent Phone: " + student.parentPhone;
         }
@@ -62,29 +62,14 @@ namespace Geo_Team
             dgv_quizes.Rows.Clear();
             dgv_exams.Rows.Clear();
 
-            for (int i = 0; i < student.quizResults.GetLength(0); i++)
-                //date, day, center, quiz
-                dgv_quizes.Rows.Add(student.quizResults[i, 0], student.group.day, student.group.centerName, student.quizResults[i, 1]);
-
-            for (int i = 0; i < student.examResults.GetLength(0); i++)
-                //date, result
-                dgv_quizes.Rows.Add(student.examResults[i, 0], student.examResults[i, 1]);
-        }
-
-        private void handleNullError(Exception e)
-        {
-            if (student == null)
-            {
-                MessageBox.Show(e.Message);
-            }
-            else if (student.quizResults == null)
-            {
-                MessageBox.Show("Student " + student.name + " has not taken any quizzes");
-            }
-            else if (student.examResults == null)
-            {
-                MessageBox.Show("Student " + student.name + " has not taken any monthly exams");
-            }
+            if(student.quizResults != null)
+                for (int i = 0; i < student.quizResults.GetLength(0); i++)
+                    //date, day, center, quiz
+                    dgv_quizes.Rows.Add(student.quizResults[i, 0], student.group.day, student.group.centerName, student.quizResults[i, 1]);
+            if(student.examResults != null)
+                for (int i = 0; i < student.examResults.GetLength(0); i++)
+                    //date, result
+                    dgv_quizes.Rows.Add(student.examResults[i, 0], student.examResults[i, 1]);
         }
 
         private void txt_code_MouseClick(object sender, MouseEventArgs e)

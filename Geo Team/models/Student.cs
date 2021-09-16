@@ -49,13 +49,12 @@ namespace Geo_Team.models
     {
         public string centerName;
         public string day;
-        public string appointment;
+        //public string appointment;
 
-        public Group(string centerName, string day, string appointment)
+        public Group(string centerName, string day)
         {
             this.centerName = centerName;
             this.day = day;
-            this.appointment = appointment;
         }
     }
 

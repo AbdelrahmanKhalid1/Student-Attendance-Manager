@@ -31,8 +31,7 @@ namespace Geo_Team
 
             for (int row = 2; row < lastUsedRow; row++)
             {
-                string[] groupStr = cells[row, 5].Text.Split("/"); // day/appointment ==> day at 0, appointment at 1
-                Group group = new Group(groupStr[0], groupStr[1], cells[row, 6]);
+                Group group = new Group(cells[row, 6].Text, cells[row, 5].Text);
                 students.Add(new Student(cells[row, 1].Text, cells[row, 2].Text,
                     cells[row, 3].Text, cells[row, 4].Text, group));
             }
@@ -67,8 +66,8 @@ namespace Geo_Team
             Range cells = worksheet.Cells;
 
             //for(int i=1;i<worksheet.UsedRange.Columns.Count; i++)
-            string[] groupStr = cells[rowIndex, 5].Text.Split('/'); // day/appointment ==> day at 0, appointment at 1
-            Group group = new Group(cells[rowIndex, 6].Text, groupStr[0], groupStr[1]);
+            //string[] groupStr = cells[rowIndex, 5].Text.Split("/"); // day/appointment ==> day at 0, appointment at 1
+            Group group = new Group(cells[rowIndex, 6].Text, cells[rowIndex, 5].Text);
 
             Student stu = new Student(cells[rowIndex, 1].Text, cells[rowIndex, 2].Text,
                 cells[rowIndex, 3].Text, cells[rowIndex, 4].Text, group);
@@ -107,21 +106,19 @@ namespace Geo_Team
 
             for (int row = 0; row < lastUsedRow - 2; row++)
             {
-                results[row, 0] = cells[row + 2, 1].Text;
-                try
-                {
-                    results[row, 1] = cells[row + 2, colIndex].Text;
-                }
-                catch //if new student is added will have not taken any exams
-                {
-                    results[row, 1] = "No Result";
-                }
+                results[row, 0] = cells[row + 2, 1].Text; //set date of class (quiz)
+                results[row, 1] = cells[row + 2, colIndex].Text; //set quiz grade (score)
+                if (results[row, 1] == "")
+                    results[row, 1] = Utlis.NOT_ATTENDED;
+                
             }
             return results;
         }
         #endregion
 
-        public int addNewStudent(string name, string phone, string parentPhone)
+        #region modifyData
+        #region modifyStudentData
+        public int addNewStudent(string name, string phone, string parentPhone, string groupDay, string centerName)
         {
             worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_INFO];
             int firstEmptyRowIndex = worksheet.Columns[1].find("").Row;
@@ -135,17 +132,24 @@ namespace Geo_Team
             worksheet.Cells[firstEmptyRowIndex, 2].Value = name; //save student name
             worksheet.Cells[firstEmptyRowIndex, 3].Value = phone; //save student phone number
             worksheet.Cells[firstEmptyRowIndex, 4].Value = parentPhone; //save student parent phone number
+            worksheet.Cells[firstEmptyRowIndex, 5].Value = groupDay; //save student group day
+            worksheet.Cells[firstEmptyRowIndex, 6].Value = centerName; //save student center name
 
             //add new studnet code in attendace sheet [Attendace]
             worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_ATTENDANCE];
             int firstEmptyColIndex = worksheet.Rows[1].find("").Column;
             worksheet.Cells[1, firstEmptyColIndex].Value = newStudentCode;
 
+            //add new studnet code in monthly exam sheet [Monthly Exam]
+            //no need to find first empty col index as they have the same number of columns
+            worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_EXAM_RESULTS];
+            worksheet.Cells[1, firstEmptyColIndex].Value = newStudentCode;
+
             workbook.Save();
             return newStudentCode;
         }
 
-        public bool updateStudent(string code, string name, string phone, string parentPhone)
+        public bool updateStudent(string code, string name, string phone, string parentPhone, string groupDay, string centerName)
         {
             worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_INFO];
             int rowIndex = worksheet.Columns[1].find(code).Row; //get student data position in excell file
@@ -155,61 +159,58 @@ namespace Geo_Team
             worksheet.Cells[rowIndex, 2].Value = name; //save student name
             worksheet.Cells[rowIndex, 3].Value = phone; //save student phone number
             worksheet.Cells[rowIndex, 4].Value = parentPhone; //save student parent phone number
+            worksheet.Cells[rowIndex, 5].Value = groupDay; //save student group day
+            worksheet.Cells[rowIndex, 6].Value = centerName; //save student center name
 
             workbook.Save();
             return true;
         }
-        
-        public bool addNewAttendanceData(string date, string day, string mark, DataGridViewRowCollection rows) //rows.Cells[] ==> 0 for code, 1 for grade
+        #endregion
+        #region modifyExamData
+        public bool addNewAttendanceData(string date, DataGridViewRowCollection rows) //rows.Cells[] ==> 0 for code, 1 for grade
         {
             worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_ATTENDANCE];
             int firstEmptyRowIndex = worksheet.Columns[1].find("").Row;
 
             //save new attendance data in excel sheet
             worksheet.Cells[firstEmptyRowIndex, Utlis.ATTENDANCE_DATE_COLUMN_INDEX].Value = date; //save date
-            for(int row=0; row<rows.Count-1; row++)
+            addExamGrades(firstEmptyRowIndex, rows);
+
+            workbook.Save();
+            return true;
+        }
+
+        public bool addNewMonthlyExam(string date, DataGridViewRowCollection rows)
+        {
+            worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_EXAM_RESULTS];
+            int firstEmptyRowIndex = worksheet.Columns[1].find("").Row;
+            
+            //save new monthly exam results in excel sheet
+            worksheet.Cells[firstEmptyRowIndex, 1].Value = date; //save date
+            addExamGrades(firstEmptyRowIndex, rows);
+
+            workbook.Save();
+            return true;
+        }
+
+        private void addExamGrades(int firstEmptyRowIndex, DataGridViewRowCollection rows)
+        {
+            for (int row = 0; row < rows.Count - 1; row++)
             {
                 Range findResult = worksheet.Rows[Utlis.STUDENT_CODE_ROW_INDEX].find(rows[row].Cells[0].Value);
-                if(findResult == null)
+                if (findResult == null)
                 {
                     Range studentInfoSearchResult = workbook.Worksheets[Utlis.SHEET_STUDENT_INFO].find(rows[row].Cells[0].Value);
-                    if(studentInfoSearchResult == null)
+                    if (studentInfoSearchResult == null)
                         throw new NullReferenceException("No student with code " + rows[row].Cells[0].Value + " is found");
                 }
 
                 int colIndex = findResult.Column;
-                string score = rows[row].Cells[1].Value + " - " + mark;
-                worksheet.Cells[firstEmptyRowIndex, colIndex].Value = score; //save quiz Result
+                worksheet.Cells[firstEmptyRowIndex, colIndex].Value = rows[row].Cells[1].Value; //save Results
             }
-
-            workbook.Save();
-            return true;
         }
-
-        public bool addNewMonthlyExam(string date, string mark, DataGridViewRowCollection rows)
-        {
-            worksheet = workbook.Worksheets[Utlis.SHEET_STUDENT_EXAM_RESULTS];
-            int firstEmptyRowIndex = worksheet.Columns[1].find("").Row;
-
-            //save new attendance data in excel sheet
-            worksheet.Cells[firstEmptyRowIndex, 1].Value = date; //save date
-            foreach (DataGridViewRow row in rows)
-            {
-                Range findResult = worksheet.Rows[Utlis.STUDENT_CODE_ROW_INDEX].find(row.Cells[0].Value);
-                if (findResult == null)
-                {
-                    Range studentInfoSearchResult = workbook.Worksheets[Utlis.SHEET_STUDENT_INFO].find(row.Cells[0].Value);
-                    if (studentInfoSearchResult == null)
-                        throw new NullReferenceException("No student with code " + row.Cells[0].Value + " is found");
-                }
-
-                int colIndex = findResult.Column;
-                worksheet.Cells[firstEmptyRowIndex, colIndex].Value = "" + row.Cells[1].Value + "/" + mark; //save quiz Result
-            }
-
-            workbook.Save();
-            return true;
-        }
+        #endregion
+        #endregion
 
         public void closeExcel(){ workbook.Close();}
 

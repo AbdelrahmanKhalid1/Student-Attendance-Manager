@@ -34,6 +34,8 @@
             this.stu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stu_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stu_parent_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stu_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stu_center_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_students)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,9 @@
             this.stu_code,
             this.stu_name,
             this.stu_phone,
-            this.stu_parent_phone});
+            this.stu_parent_phone,
+            this.stu_group,
+            this.stu_center_name});
             this.dgv_students.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_students.Location = new System.Drawing.Point(0, 39);
             this.dgv_students.Margin = new System.Windows.Forms.Padding(25);
@@ -97,6 +101,18 @@
             this.stu_parent_phone.Name = "stu_parent_phone";
             this.stu_parent_phone.ReadOnly = true;
             // 
+            // stu_group
+            // 
+            this.stu_group.HeaderText = "Group";
+            this.stu_group.Name = "stu_group";
+            this.stu_group.ReadOnly = true;
+            // 
+            // stu_center_name
+            // 
+            this.stu_center_name.HeaderText = "Center Name";
+            this.stu_center_name.Name = "stu_center_name";
+            this.stu_center_name.ReadOnly = true;
+            // 
             // UserControlAllStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,5 +136,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stu_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn stu_phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn stu_parent_phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stu_group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stu_center_name;
     }
 }

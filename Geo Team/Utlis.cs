@@ -26,6 +26,30 @@ namespace Geo_Team
         public const int ATTENDANCE_DATE_COLUMN_INDEX = 1;
         public const int ATTENDANCE_CENTER_NAME_COLUMN_INDEX = 4;
         public const string NOT_ATTENDED = "DID NOT ATTEND";
-        public const string DID_NOT_TAKE_EXAM = "NO_RESULT";
+
+        public static bool validateDays(string day)
+        {
+            day = day.ToLower();
+            switch (day)
+            {
+                case "saturday":
+                case "sat":
+                case "sunday":
+                case "sun":
+                case "monday":
+                case "mon":
+                case "tuesday":
+                case "tue":
+                case "wednesday":
+                case "wed":
+                case "thursday":
+                case "thu":
+                case "thur":
+                case "friday":
+                case "fri":
+                    return true;
+            }
+            return false;
+        }
     }
 }

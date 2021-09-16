@@ -28,16 +28,16 @@ namespace Geo_Team
                     throw new Exception("No students were found");
 
                 foreach(Student stu in students)
-                    dgv_students.Rows.Add(stu.id, stu.name, stu.phone, stu.parentPhone);
+                    dgv_students.Rows.Add(stu.id, stu.name, stu.phone, stu.parentPhone, stu.group.day, stu.group.centerName);
                 
             }
             catch (NullReferenceException ignore)
             {
-                MessageBox.Show(ignore.Message);
+                MessageBox.Show(ignore.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch(Exception ignore)
             {
-                MessageBox.Show(ignore.Message);
+                MessageBox.Show(ignore.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

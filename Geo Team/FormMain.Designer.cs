@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel_header = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.labelTime = new System.Windows.Forms.Label();
-            this.btn_close = new System.Windows.Forms.Button();
+            this.btn_open_excel = new System.Windows.Forms.Button();
             this.btn_menu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_nav = new System.Windows.Forms.Panel();
@@ -42,16 +43,21 @@
             this.btn_view_student = new System.Windows.Forms.Button();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.openFD = new System.Windows.Forms.OpenFileDialog();
+            this.menu_excel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.loadExcelSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createNewExcelSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_container = new System.Windows.Forms.Panel();
             this.panel_header.SuspendLayout();
             this.panel_nav.SuspendLayout();
+            this.menu_excel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_header
             // 
             this.panel_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_header.Controls.Add(this.panel1);
             this.panel_header.Controls.Add(this.labelTime);
-            this.panel_header.Controls.Add(this.btn_close);
+            this.panel_header.Controls.Add(this.btn_open_excel);
             this.panel_header.Controls.Add(this.btn_menu);
             this.panel_header.Controls.Add(this.label1);
             this.panel_header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,6 +66,13 @@
             this.panel_header.Name = "panel_header";
             this.panel_header.Size = new System.Drawing.Size(1120, 50);
             this.panel_header.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(870, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 100);
+            this.panel1.TabIndex = 0;
             // 
             // labelTime
             // 
@@ -74,23 +87,24 @@
             this.labelTime.Text = "HH:MM:SS";
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_close
+            // btn_open_excel
             // 
-            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.ForeColor = System.Drawing.Color.White;
-            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
-            this.btn_close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_close.Location = new System.Drawing.Point(1069, 0);
-            this.btn_close.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(51, 50);
-            this.btn_close.TabIndex = 2;
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            this.btn_open_excel.ContextMenuStrip = this.menu_excel;
+            this.btn_open_excel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_open_excel.FlatAppearance.BorderSize = 0;
+            this.btn_open_excel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_open_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_open_excel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_open_excel.ForeColor = System.Drawing.Color.White;
+            this.btn_open_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_open_excel.Image")));
+            this.btn_open_excel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_open_excel.Location = new System.Drawing.Point(1069, 0);
+            this.btn_open_excel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_open_excel.Name = "btn_open_excel";
+            this.btn_open_excel.Size = new System.Drawing.Size(51, 50);
+            this.btn_open_excel.TabIndex = 2;
+            this.btn_open_excel.UseVisualStyleBackColor = true;
+            this.btn_open_excel.Click += new System.EventHandler(this.btn_open_excel_Click);
             // 
             // btn_menu
             // 
@@ -139,63 +153,61 @@
             // 
             this.btn_add_exam.BackColor = System.Drawing.Color.Transparent;
             this.btn_add_exam.FlatAppearance.BorderSize = 0;
+            this.btn_add_exam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.btn_add_exam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_exam.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_exam.ForeColor = System.Drawing.Color.Teal;
             this.btn_add_exam.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_exam.Image")));
             this.btn_add_exam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add_exam.Location = new System.Drawing.Point(3, 120);
+            this.btn_add_exam.Location = new System.Drawing.Point(3, 60);
             this.btn_add_exam.Name = "btn_add_exam";
             this.btn_add_exam.Size = new System.Drawing.Size(255, 60);
             this.btn_add_exam.TabIndex = 5;
             this.btn_add_exam.Text = "         Add Exam Grades";
             this.btn_add_exam.UseVisualStyleBackColor = false;
             this.btn_add_exam.Click += new System.EventHandler(this.btn_add_quiz_Click);
-            this.btn_add_exam.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btn_add_exam.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btn_add_student
             // 
             this.btn_add_student.BackColor = System.Drawing.Color.Transparent;
             this.btn_add_student.FlatAppearance.BorderSize = 0;
+            this.btn_add_student.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.btn_add_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_student.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_student.ForeColor = System.Drawing.Color.Teal;
             this.btn_add_student.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_student.Image")));
             this.btn_add_student.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add_student.Location = new System.Drawing.Point(3, 180);
+            this.btn_add_student.Location = new System.Drawing.Point(3, 120);
             this.btn_add_student.Name = "btn_add_student";
             this.btn_add_student.Size = new System.Drawing.Size(255, 60);
             this.btn_add_student.TabIndex = 6;
             this.btn_add_student.Text = "         Add new Student";
             this.btn_add_student.UseVisualStyleBackColor = false;
             this.btn_add_student.Click += new System.EventHandler(this.btn_add_new_student_Click);
-            this.btn_add_student.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btn_add_student.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btn_view_all
             // 
             this.btn_view_all.BackColor = System.Drawing.Color.Transparent;
             this.btn_view_all.FlatAppearance.BorderSize = 0;
+            this.btn_view_all.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.btn_view_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_view_all.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view_all.ForeColor = System.Drawing.Color.Teal;
             this.btn_view_all.Image = ((System.Drawing.Image)(resources.GetObject("btn_view_all.Image")));
             this.btn_view_all.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_view_all.Location = new System.Drawing.Point(3, 60);
+            this.btn_view_all.Location = new System.Drawing.Point(3, 180);
             this.btn_view_all.Name = "btn_view_all";
             this.btn_view_all.Size = new System.Drawing.Size(255, 60);
             this.btn_view_all.TabIndex = 4;
             this.btn_view_all.Text = "         View All Students";
             this.btn_view_all.UseVisualStyleBackColor = false;
             this.btn_view_all.Click += new System.EventHandler(this.btn_view_all_Click);
-            this.btn_view_all.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btn_view_all.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btn_view_student
             // 
             this.btn_view_student.BackColor = System.Drawing.Color.Transparent;
             this.btn_view_student.FlatAppearance.BorderSize = 0;
+            this.btn_view_student.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.btn_view_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_view_student.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view_student.ForeColor = System.Drawing.Color.Teal;
@@ -208,8 +220,6 @@
             this.btn_view_student.Text = "   Student Marks";
             this.btn_view_student.UseVisualStyleBackColor = false;
             this.btn_view_student.Click += new System.EventHandler(this.btn_view_student_Click);
-            this.btn_view_student.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btn_view_student.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // timerTime
             // 
@@ -219,16 +229,35 @@
             // 
             this.openFD.FileName = "Student Sheet";
             // 
+            // menu_excel
+            // 
+            this.menu_excel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadExcelSheetToolStripMenuItem,
+            this.createNewExcelSheetToolStripMenuItem});
+            this.menu_excel.Name = "contextMenuStrip1";
+            this.menu_excel.Size = new System.Drawing.Size(196, 48);
+            // 
+            // loadExcelSheetToolStripMenuItem
+            // 
+            this.loadExcelSheetToolStripMenuItem.Name = "loadExcelSheetToolStripMenuItem";
+            this.loadExcelSheetToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.loadExcelSheetToolStripMenuItem.Text = "Load Excel Sheet";
+            this.loadExcelSheetToolStripMenuItem.Click += new System.EventHandler(this.loadExcelSheetToolStripMenuItem_Click);
+            // 
+            // createNewExcelSheetToolStripMenuItem
+            // 
+            this.createNewExcelSheetToolStripMenuItem.Name = "createNewExcelSheetToolStripMenuItem";
+            this.createNewExcelSheetToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.createNewExcelSheetToolStripMenuItem.Text = "Create new Excel Sheet";
+            this.createNewExcelSheetToolStripMenuItem.Click += new System.EventHandler(this.createNewExcelSheetToolStripMenuItem_Click);
+            // 
             // panel_container
             // 
-            this.panel_container.BackColor = System.Drawing.Color.White;
             this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_container.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.panel_container.Location = new System.Drawing.Point(265, 50);
-            this.panel_container.Margin = new System.Windows.Forms.Padding(0);
             this.panel_container.Name = "panel_container";
             this.panel_container.Size = new System.Drawing.Size(855, 610);
-            this.panel_container.TabIndex = 8;
+            this.panel_container.TabIndex = 3;
             // 
             // FormMain
             // 
@@ -238,12 +267,14 @@
             this.Controls.Add(this.panel_container);
             this.Controls.Add(this.panel_nav);
             this.Controls.Add(this.panel_header);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Geo Team";
             this.Shown += new System.EventHandler(this.FormMain_Shown);
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
             this.panel_nav.ResumeLayout(false);
+            this.menu_excel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,11 +287,15 @@
         private System.Windows.Forms.Button btn_view_all;
         private System.Windows.Forms.Button btn_view_student;
         private System.Windows.Forms.Timer timerTime;
-        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Button btn_open_excel;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.OpenFileDialog openFD;
         private System.Windows.Forms.Button btn_add_exam;
         private System.Windows.Forms.Button btn_add_student;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ContextMenuStrip menu_excel;
+        private System.Windows.Forms.ToolStripMenuItem loadExcelSheetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createNewExcelSheetToolStripMenuItem;
         private System.Windows.Forms.Panel panel_container;
     }
 }

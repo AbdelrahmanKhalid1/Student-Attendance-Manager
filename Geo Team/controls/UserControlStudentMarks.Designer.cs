@@ -39,11 +39,11 @@
             this.Exam_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exam_Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_quizes = new System.Windows.Forms.DataGridView();
-            this.btn_find = new System.Windows.Forms.Button();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.center_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quiz_Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_find = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_exams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_quizes)).BeginInit();
@@ -179,16 +179,6 @@
             this.dgv_quizes.Size = new System.Drawing.Size(535, 346);
             this.dgv_quizes.TabIndex = 8;
             // 
-            // btn_find
-            // 
-            this.btn_find.Location = new System.Drawing.Point(435, 12);
-            this.btn_find.Name = "btn_find";
-            this.btn_find.Size = new System.Drawing.Size(121, 23);
-            this.btn_find.TabIndex = 7;
-            this.btn_find.Text = "Find Student";
-            this.btn_find.UseVisualStyleBackColor = true;
-            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
-            // 
             // date
             // 
             this.date.HeaderText = "Date";
@@ -212,6 +202,20 @@
             this.Quiz_Score.HeaderText = "Quiz Score";
             this.Quiz_Score.Name = "Quiz_Score";
             this.Quiz_Score.ReadOnly = true;
+            // 
+            // btn_find
+            // 
+            this.btn_find.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_find.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            this.btn_find.ForeColor = System.Drawing.Color.White;
+            this.btn_find.Location = new System.Drawing.Point(425, 7);
+            this.btn_find.Name = "btn_find";
+            this.btn_find.Size = new System.Drawing.Size(148, 31);
+            this.btn_find.TabIndex = 7;
+            this.btn_find.Text = "Find Student";
+            this.btn_find.UseVisualStyleBackColor = false;
+            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
             // UserControlStudentMarks
             // 

@@ -1,0 +1,14 @@
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\bin\Release\Geo Team.exe.config
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\bin\Release\Geo Team.exe
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\bin\Release\Geo Team.pdb
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.UserControlAddExam.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.UserControlAllStudents.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.FormMain.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.Properties.Resources.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.UserControlStudentMarks.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo_Team.UserControlAddStudent.resources
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csproj.GenerateResource.cache
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csproj.CoreCompileInputs.cache
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.exe
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.pdb
+C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csprojAssemblyReference.cache

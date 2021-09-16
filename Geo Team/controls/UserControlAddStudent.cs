@@ -63,6 +63,8 @@ namespace Geo_Team
             txt_name.Text = student.name;
             txt_phone.Text = student.phone;
             txt_parent_phone.Text = student.parentPhone;
+            txt_group.Text = student.group.day;
+            txt_centerName.Text = student.group.centerName;
         }
 
         private void btn_cancel_edit_Click(object sender, EventArgs e)
@@ -76,19 +78,21 @@ namespace Geo_Team
 
         private void btn_add_student_Click(object sender, EventArgs e)
         {
-            if (validateName() && validatePhone(txt_phone, lbl_error_phone) && validatePhone(txt_parent_phone, lbl_error_parent_phone))
+            if (validateName() && validatePhone(txt_phone, lbl_error_phone) 
+                && validatePhone(txt_parent_phone, lbl_error_parent_phone)
+                && validateDay() && validateCenterName())
             {
                 try
                 {
                     if (isEdit)
                     {
-                        bool isSuccessfull = excel.updateStudent(editStudentCode, txt_name.Text, txt_phone.Text, txt_parent_phone.Text);
+                        bool isSuccessfull = excel.updateStudent(editStudentCode, txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
                         if (isSuccessfull)
                             MessageBox.Show("Updated Successfully");
                     }
                     else
                     {
-                        int code = excel.addNewStudent(txt_name.Text, txt_phone.Text, txt_parent_phone.Text);
+                        int code = excel.addNewStudent(txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
                         if (code != -1)
                             MessageBox.Show("Student is Added Successfully with code \"" + code + "\"");
                     }
@@ -136,7 +140,21 @@ namespace Geo_Team
                     return false;
             }
         }
-       
+
+        private bool validateDay()
+        {
+            bool isValid = Utlis.validateDays(txt_group.Text);
+            lbl_error_day.Visible = !isValid;
+            return isValid;
+        }
+
+        private bool validateCenterName()
+        {
+            bool isValid = txt_centerName.Text.TrimEnd() != "";
+            lbl_error_center.Visible = !isValid; //visivle if txt_centerName.Text is empty
+            return isValid;
+        }
+
         /**
          * Summary:
          *      KeyPress event for txt_phone and txt_parent_phone
@@ -172,12 +190,12 @@ namespace Geo_Team
         {
             if (excel == null)
             {
-                MessageBox.Show("Must provide excel file");
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             else
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
