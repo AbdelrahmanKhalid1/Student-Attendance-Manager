@@ -41,9 +41,9 @@ namespace Geo_Team
             {
                 openExcelFile();
             }
-            catch
+            catch(Exception exc)
             {
-                MessageBox.Show("Applicatoin might not work unless you provide excel file!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(exc.Message, "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion

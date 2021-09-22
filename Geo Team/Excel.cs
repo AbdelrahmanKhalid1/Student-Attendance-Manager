@@ -222,6 +222,11 @@ namespace Geo_Team
         {
             if (instance == null)
                 instance = new Excel(path);
+            else if(instance.workbook.Path != path)
+            {
+                instance.workbook.Save();
+                instance.closeExcel();
+            }
             return instance;
         }
 
