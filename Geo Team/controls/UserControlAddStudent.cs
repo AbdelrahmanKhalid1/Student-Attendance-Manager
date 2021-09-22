@@ -86,13 +86,13 @@ namespace Geo_Team
                 {
                     if (isEdit)
                     {
-                        bool isSuccessfull = excel.updateStudent(editStudentCode, txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
+                        bool isSuccessfull = Excel.getInstance().updateStudent(editStudentCode, txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
                         if (isSuccessfull)
                             MessageBox.Show("Updated Successfully");
                     }
                     else
                     {
-                        int code = excel.addNewStudent(txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
+                        int code = Excel.getInstance().addNewStudent(txt_name.Text, txt_phone.Text, txt_parent_phone.Text, txt_group.Text, txt_centerName.Text);
                         if (code != -1)
                             MessageBox.Show("Student is Added Successfully with code \"" + code + "\"");
                     }

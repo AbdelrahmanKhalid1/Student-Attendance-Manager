@@ -11,4 +11,3 @@ C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csproj.
 C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csproj.CoreCompileInputs.cache
 C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.exe
 C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.pdb
-C:\Users\Abdelrahman\source\repos\Geo Team\Geo Team\obj\Release\Geo Team.csprojAssemblyReference.cache

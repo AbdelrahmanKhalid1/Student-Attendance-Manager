@@ -125,6 +125,10 @@ namespace Geo_Team
             
             //get last code and increment it to generate new code
             string lastStudentCode = worksheet.Cells[firstEmptyRowIndex - 1, Utlis.STUDENT_CODE_COLUMN_INDEX].Text;
+            if(lastStudentCode == "code")
+            {
+                lastStudentCode = "500";
+            }
             int newStudentCode = int.Parse(lastStudentCode) + 1;
 
             //save new student data in excel sheet [Info]
